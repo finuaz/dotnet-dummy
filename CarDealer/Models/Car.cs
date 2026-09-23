@@ -9,6 +9,5 @@ public class Car
     public decimal Price { get; set; }
     public int Mileage { get; set; }
     public string Color { get; set; } = string.Empty;
-    public bool isNew { get; set; }
-
+    public bool IsNew { get; set; }
 }

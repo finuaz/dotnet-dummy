@@ -1,0 +1,14 @@
+@model CarDealer.ViewModels.CarListViewModel
+
+<h1>Car List</h1>
+
+<ul>
+    @foreach (var car in Model.Cars)
+    {
+        <li>
+            @car.Make @car.Model 
+            - @car.Year
+            - @car.Price
+        </li>
+    }
+</ul>

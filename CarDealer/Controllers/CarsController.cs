@@ -11,35 +11,35 @@ public class CarsController : Controller
         var cars = new List<Car>
         {
             new Car
-            { 
+            {
                 Id = 1,
-                Make = 'Toyota',
-                Model = 'Avanza',
+                Make = "Toyota",
+                Model = "Avanza",
                 Year = 2023,
                 Price = 235000000,
                 Mileage = 13000,
-                Color = 'Blue',
+                Color = "Blue",
                 IsNew = false
             },
             new Car
             {
                 Id = 2,
-                Make = 'Honda',
-                Model = 'Civic',
+                Make = "Honda",
+                Model = "Civic",    
                 Year = 2022,
                 Price = 480000000,
                 Mileage = 15000,
-                Color = 'Red',
+                Color = "Red",
                 IsNew = false
             }
-        }
+        };
 
         var viewModel = new CarListViewModel
         {
             Cars = cars,
             TotalCars = cars.Count
-        }
+        };
 
-        return View(viewModel);
+        return View(viewModel); 
     }
 }
