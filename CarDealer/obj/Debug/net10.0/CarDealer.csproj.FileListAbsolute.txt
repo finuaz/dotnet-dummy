@@ -95,3 +95,4 @@ C:\Users\imans\source\repos\dotnet-dummy\CarDealer\obj\Debug\net10.0\refint\CarD
 C:\Users\imans\source\repos\dotnet-dummy\CarDealer\obj\Debug\net10.0\CarDealer.pdb
 C:\Users\imans\source\repos\dotnet-dummy\CarDealer\obj\Debug\net10.0\CarDealer.genruntimeconfig.cache
 C:\Users\imans\source\repos\dotnet-dummy\CarDealer\obj\Debug\net10.0\ref\CarDealer.dll
+C:\Users\imans\source\repos\dotnet-dummy\CarDealer\obj\Debug\net10.0\CarDealer.sourcelink.json
