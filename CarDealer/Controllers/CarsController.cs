@@ -65,4 +65,21 @@ public class CarsController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Delete (int id)
+    {
+        var car = await _context.Cars.FindAsync(id);
+
+        if (car == null)
+        {
+            return NotFound();
+        }
+
+        _context.Cars.Remove(car);
+
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
 }

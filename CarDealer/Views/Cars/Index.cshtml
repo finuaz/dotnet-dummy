@@ -9,6 +9,13 @@
             @car.Make @car.Model 
             - @car.Year
             - @car.Price
+
+            <a href="/Cars/Edit/@car.Id">Edit</a>
+
+            <form method="post" action="/Cars/Delete">
+                <input type="hidden" name="Id" value="@car.Id" />
+                <button type="submit">Delete</button>
+            </form>
         </li>
     }
 </ul>
