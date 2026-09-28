@@ -28,4 +28,23 @@ public class CarsController : Controller
 
         return View(viewModel); 
     }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(Car car)
+    //public IActionResult Create(Car car)
+    {
+        _context.Cars.Add(car);
+
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+
+        //return View();
+    }
 }
