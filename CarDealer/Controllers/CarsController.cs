@@ -15,8 +15,8 @@ public class CarsController : Controller
         _context = context;
     }
 
-    
-    public async Task<IActionResult> Index ()
+
+    public async Task<IActionResult> Index()
     {
         var cars = await _context.Cars.ToListAsync();
 
@@ -26,7 +26,7 @@ public class CarsController : Controller
             TotalCars = cars.Count
         };
 
-        return View(viewModel); 
+        return View(viewModel);
     }
 
     [HttpGet]
@@ -37,14 +37,32 @@ public class CarsController : Controller
 
     [HttpPost]
     public async Task<IActionResult> Create(Car car)
-    //public IActionResult Create(Car car)
     {
         _context.Cars.Add(car);
 
         await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));
+    }
 
-        //return View();
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var car = await _context.Cars.FindAsync(id);
+
+        if (car == null)
+        {
+            return NotFound();
+        }
+
+        return View(car);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(Car car)
+    {
+        _context.Cars.Update(car);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 }
