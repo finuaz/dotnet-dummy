@@ -1,38 +1,24 @@
+using CarDealer.Data;
 using CarDealer.Models;
 using CarDealer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace CarDealer.CarControllers; 
+namespace CarDealer.Controllers;
 
 public class CarsController : Controller
 {
-    public IActionResult Index ()
+    private readonly ApplicationDbContext _context;
+
+    public CarsController(ApplicationDbContext context)
     {
-        var cars = new List<Car>
-        {
-            new Car
-            {
-                Id = 1,
-                Make = "Toyota",
-                Model = "Avanza",
-                Year = 2023,
-                Price = 235000000,
-                Mileage = 13000,
-                Color = "Blue",
-                IsNew = false
-            },
-            new Car
-            {
-                Id = 2,
-                Make = "Honda",
-                Model = "Civic",    
-                Year = 2022,
-                Price = 480000000,
-                Mileage = 15000,
-                Color = "Red",
-                IsNew = false
-            }
-        };
+        _context = context;
+    }
+
+    
+    public async Task<IActionResult> Index ()
+    {
+        var cars = await _context.Cars.ToListAsync();
 
         var viewModel = new CarListViewModel
         {
